@@ -17,5 +17,7 @@
     <a href="party.xhtml">Party JSF</a>
     <br/>
     <a href="messages.xhtml">Messages</a>
+    <br/>
+    <a href="iteration.xhtml">Iterations</a>
 </body>
 </html>
