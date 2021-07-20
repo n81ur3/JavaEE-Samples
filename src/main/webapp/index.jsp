@@ -19,5 +19,11 @@
     <a href="messages.xhtml">Messages</a>
     <br/>
     <a href="iteration.xhtml">Iterations</a>
+    <br/>
+    <a href="colorpicker.xhtml">Color Picker</a>
+    <br/>
+    <a href="charts.xhtml">Primefaces Charts</a>
+    <br/>
+    <a href="upload.xhtml">File Upload</a>
 </body>
 </html>

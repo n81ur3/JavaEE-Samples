@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Iteration Tests</title>
+</h:head>
+<h:body>
+    <div class="card">
+        <h:form>
+            <h5 class="p-mt-0">Inline</h5>
+            <p:colorPicker value="#{colorBean.colorInline}" mode="inline">
+                <p:ajax listener="#{colorBean.onColorInlineChange}" process="@this" update="colorValue"/>
+            </p:colorPicker>
+
+            <h5>Popup</h5>
+            <p:colorPicker value="#{colorBean.colorPopup}"/>
+            <p:commandButton value="Submit" type="button" update="colorValue" icon="pi pi-check"
+                             styleClass="rounded-button"/>
+            <h:outputText id="colorValue" value="#{colorBean.colorInline}"/>
+        </h:form>
+    </div>
+    <hr/>
+    Selected Color:
+    <div class="card">
+        <h:form target="colorresult.xhtml">
+            <h5 class="p-mt-0">Basic</h5>
+            <h:panelGrid columns="3" cellpadding="7">
+                <p:outputLabel for="name" value="Name"/>
+                <p:inputText id="name" value="#{colorBean.text1}"/>
+                <h:outputText id="display" value="#{colorBean.text1}"/>
+            </h:panelGrid>
+            <p:commandButton type="submit" value="Submit" update="display" styleClass="p-mt-3"
+                             action="#{colorBean.action()}"/>
+        </h:form>
+    </div>
+    <hr/>
+    <form action="colorresult.xhtml" method="post">
+        <div class="submit">
+            <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                <span class="ui-button-text">Login</span>
+            </button>
+        </div>
+    </form>
+</h:body>
+</html>
