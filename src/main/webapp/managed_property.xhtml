@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Managed Property</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</h:head>
+<h:body>
+    <h:messages/>
+    <h:form>
+        <h:commandButton value="Submit Nickname" action="#{managedPropertyBean.action}">
+            <f:param name="nickname" value="sonny"/>
+        </h:commandButton>
+        <h:commandLink id="surprise" action="surprise?faces-redirect=true">
+            <i class="fa fa-fighter-jet fa-3x"/>
+        </h:commandLink>
+    </h:form>
+</h:body>
+</html>
