@@ -35,5 +35,9 @@
     <a href="ajax_filter_multiselect.xhtml">AJAX filter multiselect</a>
     <br />
     <a href="programmatic_navigation.xhtml">Programmatic Navigation</a>
+    <br />
+    <a href="xss.xhtml">XSS Vulnerability</a>
+    <br />
+    <a href="download.xhtml">Download</a>
 </body>
 </html>
