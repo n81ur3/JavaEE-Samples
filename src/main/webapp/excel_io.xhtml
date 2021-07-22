@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Excel IO Examples</title>
+</h:head>
+<h:body>
+    <h5>Load Excel FIle</h5>
+    <h:form>
+        <p:commandButton value="Load Data" update="data_table" ajax="false" action="#{excelBean.loadData}"
+                         styleClass="p-mt-3 ui-button-outlined p-d-block"/>
+
+        <p:dataTable id="data_table" var="fruit" value="#{excelBean.dataRows}">
+            <p:column headerText="Fruit">
+                <h:outputText value="#{fruit.fruit}"/>
+            </p:column>
+            <p:column headerText="Quantity">
+                <h:outputText value="#{fruit.quantity}"/>
+            </p:column>
+        </p:dataTable>
+        <p:commandButton value="Export to XLS" styleClass="p-mr-2 p-mb-2">
+            <p:dataExporter type="xls" target="data_table" fileName="fruits_export"/>
+        </p:commandButton>
+    </h:form>
+</h:body>
+</html>

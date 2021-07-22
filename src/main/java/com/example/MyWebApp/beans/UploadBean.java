@@ -1,7 +1,7 @@
 package com.example.MyWebApp.beans;
 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.primefaces.model.file.UploadedFile;
 
 import javax.enterprise.context.RequestScoped;

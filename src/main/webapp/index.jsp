@@ -31,13 +31,17 @@
     <a href="login.xhtml">Login Messages Labels</a>
     <br/>
     <a href="managed_property.xhtml">Managed Property</a>
-    <br />
+    <br/>
     <a href="ajax_filter_multiselect.xhtml">AJAX filter multiselect</a>
-    <br />
+    <br/>
     <a href="programmatic_navigation.xhtml">Programmatic Navigation</a>
-    <br />
+    <br/>
     <a href="xss.xhtml">XSS Vulnerability</a>
-    <br />
+    <br/>
     <a href="download.xhtml">Download</a>
+    <br/>
+    <a href="converter.xhtml">Converter</a>
+    <br/>
+    <a href="excel_io.xhtml">Excel IO</a>
 </body>
 </html>
