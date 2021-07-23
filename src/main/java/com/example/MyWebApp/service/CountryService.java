@@ -26,4 +26,8 @@ public class CountryService implements Serializable {
     public List<Country> getAll() {
         return countries;
     }
+
+    public Country getById(Integer id) {
+        return countries.get(id);
+    }
 }

@@ -16,6 +16,9 @@ public class NumbersBean implements Serializable {
     private final static long serialVersionUID = 1L;
     private List<Integer> numbers;
     private BigDecimal price = new BigDecimal("83.48");
+    private int quality;
+    private int volumn;
+    private String digits;
 
     @PostConstruct
     public void init() {
@@ -40,5 +43,29 @@ public class NumbersBean implements Serializable {
 
     public void setPrice(BigDecimal newPrice) {
         price = newPrice;
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+    public int getVolumn() {
+        return volumn;
+    }
+
+    public void setVolumn(int volumn) {
+        this.volumn = volumn;
+    }
+
+    public String getDigits() {
+        return digits;
+    }
+
+    public void setDigits(String digits) {
+        this.digits = digits;
     }
 }

@@ -38,6 +38,19 @@
             <f:convertDateTime type="localDateTime" pattern="yyyy-MM-dd'T'HH:mm"/>
         </h:inputText>
         <h:commandButton value="Submit" action="#{dateTimeBean.submit}"/>
+
+        <hr/>
+        <h3>County Converter Example</h3>
+        <h:dataTable value="#{countriesBean.countries}" var="country">
+            <h:column>#{country.id}</h:column>
+            <h:column>#{country.code}</h:column>
+            <h:column>#{country.name}</h:column>
+            <h:column>
+                <h:link value="Edit" outcome="editCountry">
+                    <f:param name="id" value="#{country.id}"/>
+                </h:link>
+            </h:column>
+        </h:dataTable>
     </h:form>
 </h:body>
 </html>
