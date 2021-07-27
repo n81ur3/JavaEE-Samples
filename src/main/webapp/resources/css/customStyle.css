@@ -1,0 +1,7 @@
+body {
+    background-color: aliceblue;
+}
+
+.ui-autocomplete-panel, .ui-autocomplete-item, .ui-autocomplete-items {
+    background-color: #5e1621;
+}

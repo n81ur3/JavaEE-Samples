@@ -1,7 +1,6 @@
 package com.example.MyWebApp.beans;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -67,5 +66,14 @@ public class NumbersBean implements Serializable {
 
     public void setDigits(String digits) {
         this.digits = digits;
+    }
+
+    public List<String> autoCompletet(String input) {
+        List<String> suggestions = new LinkedList<>();
+        suggestions.add("Tel: +43 - " + input);
+        suggestions.add("Tel: +36 - " + input);
+        suggestions.add("Tel: +420 - " + input);
+        suggestions.add("Tel: +49 - " + input);
+        return suggestions;
     }
 }

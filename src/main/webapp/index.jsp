@@ -8,7 +8,7 @@
     <h1><%= "Hello World!" %>
     </h1>
     <br/>
-    <a href="hello-servlet">Hello Servlet</a>
+    <a href="home.xhtml">Home</a>
     <br/>
     <a href="album.jsp">Photo Album</a>
     <br/>
@@ -28,7 +28,7 @@
     <br/>
     <a href="selection/selection.xhtml">Selection Example</a>
     <br/>
-    <a href="login.xhtml">Login Messages Labels</a>
+    <a href="login_with_message.xhtml">Login Messages Labels</a>
     <br/>
     <a href="managed_property.xhtml">Managed Property</a>
     <br/>
@@ -44,6 +44,20 @@
     <br/>
     <a href="excel_io.xhtml">Excel IO</a>
     <br/>
-    <a href="validation.xhtml">Validation</a>
+    <a href="validation.xhtml?name=mike">Validation</a>
+    <br/>
+    <a href="admin/adminpage.html">Protected Admin Page (Login required)</a>
+    <br/>
+    <a href="primefaces_css.xhtml">Primefaces CSS</a>
+    <br/>
+    <a href="primefaces_input.xhtml">Primefaces Input</a>
+    <br/>
+    <a href="output_examples.xhtml">Output Examples</a>
+    <br/>
+    <a href="pagination.xhtml">Pagination</a>
+    <br/>
+    <a href="spa.xhtml">Single Page Application</a>
+    <br/>
+    <a href="decoration.xhtml">Decoration</a>
 </body>
 </html>

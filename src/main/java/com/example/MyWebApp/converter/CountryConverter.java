@@ -10,8 +10,10 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 @FacesConverter(forClass = Country.class, managed = true)
+@Named
 public class CountryConverter implements Converter<Country> {
 
     @Inject

@@ -19,4 +19,8 @@ public class PeriodBean implements Serializable {
     public Period getPeriod() {
         return period;
     }
+
+    public Boolean getVisible() {
+        return true;
+    }
 }

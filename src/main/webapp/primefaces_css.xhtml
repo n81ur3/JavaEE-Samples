@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Primefaces CSS</title>
+</h:head>
+<h:outputStylesheet library="css" name="customStyle.css"/>
+<h:body>
+    <h:form id="form">
+        <h3 style="margin-top:0">Stateful Theme Switcher</h3>
+
+        <p:themeSwitcher value="#{userSettingsBean.theme}" var="t"
+                         style="width:170px" effect="fade"
+                         converter="#{themeConverter}">
+            <f:selectItems value="#{userSettingsBean.availableThemes}"
+                           var="theme"
+                           itemLabel="#{theme.displayName}"
+                           itemValue="#{theme}"/>
+            <p:column>
+                <h:graphicImage library="images" name="#{t.name}.png"/>
+            </p:column>
+            <p:column>
+                #{t.displayName}
+            </p:column>
+        </p:themeSwitcher>
+
+        <style type="text/css">
+            .ui-selectonemenu-panel .ui-selectonemenu-table td {
+                border: none;
+            }
+        </style>
+
+        <p:panelGrid columns="2">
+            <p:outputLabel value="Login"/>
+            <p:spacer/>
+            <p:outputLabel for="username" value="Username:"/>
+            <p:inputText id="username"/>
+            <p:outputLabel for="password" value="Password:"/>
+            <p:inputText id="password" type="password"/>
+        </p:panelGrid>
+        <p:growl id="growl" showSummary="true" showDetail="true">
+            <p:autoUpdate/>
+        </p:growl>
+
+        <div class="card">
+            <p:timeline id="timeline" value="#{basicTimelineView.model}"
+                        height="250px" selectable="#{basicTimelineView.selectable}"
+                        zoomable="#{basicTimelineView.zoomable}"
+                        moveable="#{basicTimelineView.moveable}"
+                        stackEvents="#{basicTimelineView.stackEvents}"
+                        eventStyle="#{basicTimelineView.eventStyle}"
+                        showCurrentTime="#{basicTimelineView.showCurrentTime}">
+
+                <p:ajax event="select" listener="#{basicTimelineView.onSelect}"/>
+
+            </p:timeline>
+        </div>
+        <hr/>
+        <p:selectBooleanButton onLabel="Bus" offLabel="Taxi" onIcon="fa fa-bus" offIcon="fa fa-taxi" style="width:100px"/>
+        <br/>
+        <p:inputMask mask="(999) 999-9999" slotChar="x"/>
+
+    </h:form>
+</h:body>
+</html>

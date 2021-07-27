@@ -1,0 +1,17 @@
+body {
+    background-color: aliceblue;
+    font-family: Noto Sans, serif;
+}
+
+input:not([type="submit"]) {
+    background-color: #b8cd97;
+    font-family: Noto Monospaced, monospace;
+    font-size: 1.1em;
+}
+
+.ui-growl {
+    position:absolute;
+    top:50%;
+    left:50%;
+    z-index:9999;
+}

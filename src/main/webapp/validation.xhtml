@@ -5,44 +5,63 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Validation</title>
+    <link rel="stylesheet" href="resource/css/style.css"/>
 </h:head>
 <h:body>
-    <h:messages />
+    <h:messages/>
+    <p:growl/>
     <h:form>
-        <h:outputLabel for="quality" value="Quality(1-10): "/>
-        <h:inputText id="quality" value="#{numbersBean.quality}" a:type="number" a:min="1" a:max="12">
-            <f:validateLongRange minimum="1" maximum="10"/>
-        </h:inputText>
-        <br/>
-        <h:outputLabel for="volumn" value="Volumn(1-10[2]): "/>
-        <h:inputText id="volumn" value="#{numbersBean.volumn}" a:type="range" a:min="1" a:max="10" a:step="2">
-            <f:validateLongRange minimum="1" maximum="10"/>
-        </h:inputText>
-        <br/>
-        <h:outputLabel for="digits" value="3 Digits: "/>
-        <h:inputText id="digits" value="#{numbersBean.digits}" maxlength="3">
-            <f:validateRegex pattern="\d{3}"/>
-        </h:inputText>
+        <p:panelGrid columns="2">
+            <h:outputLabel for="quality" value="Quality(1-10): "/>
+            <h:inputText id="quality" value="#{numbersBean.quality}" a:type="number" a:min="1" a:max="12">
+                <f:validateLongRange minimum="1" maximum="10"/>
+            </h:inputText>
+            <h:outputLabel for="volumn" value="Volumn(1-10[2]): "/>
+            <h:inputText id="volumn" value="#{numbersBean.volumn}" a:type="range" a:min="1" a:max="10" a:step="2">
+                <f:validateLongRange minimum="1" maximum="10"/>
+            </h:inputText>
+            <h:outputLabel for="digits" value="3 Digits: "/>
+            <h:inputText id="digits" value="#{numbersBean.digits}" maxlength="3">
+                <f:validateRegex pattern="\d{3}"/>
+            </h:inputText>
 
 
-        <hr/>
-        <h:outputLabel for="startdate" value="Start Date: "/>
-        <h:inputText id="startdate" a:type="date" value="#{periodBean.period.startDate}">
-            <f:convertDateTime type="date" pattern="yyyy-MM-dd" locale="en_EN"/>
-        </h:inputText>
-        <br/>
-        <h:outputLabel for="enddate" value="End Date: "/>
-        <h:inputText id="enddate" a:type="date" value="#{periodBean.period.endDate}">
-            <f:convertDateTime type="date" pattern="yyyy-MM-dd" locale="en_EN"/>
-        </h:inputText>
+            <h:outputLabel for="startdate" value="Start Date: "/>
+            <h:inputText id="startdate" a:type="date" value="#{periodBean.period.startDate}">
+                <f:convertDateTime type="date" pattern="yyyy-MM-dd" locale="en_EN"/>
+            </h:inputText>
+            <h:outputLabel for="enddate" value="End Date: "/>
+            <h:inputText id="enddate" a:type="date" value="#{periodBean.period.endDate}">
+                <f:convertDateTime type="date" pattern="yyyy-MM-dd" locale="en_EN"/>
+            </h:inputText>
+        </p:panelGrid>
+
+        <h5>Unique Email Signup Example</h5>
+        <h:inputText id="signup_email" value="#{signupBean.email}"
+                     validator="com.example.MyWebApp.validation.UniqueEmailValidator"
+                     validatorMessage="Sorry this email is already in use" size="40"/>
+        <h:message for="signup_email" style="color:red"/>
 
         <hr/>
         <h:commandButton value="Submit"/>
         <f:validateWholeBean value="#{periodBean.period}" validationGroups=""/>
+        <br/>
+        <p:outputLabel rendered="#{periodBean.visible}" value="visibility check"/>
+        <br/>
+        <h:outputText id="test_output" value="just a test"/>
     </h:form>
+    <h:outputFormat value = "parameter 1 : {0}, parameter 2 : {1}" >
+        <f:param value = "#{request.getParameter('name')}" />
+        <f:param value = "Item 2" />
+    </h:outputFormat>
+    <br/>
+    <h:link outcome="notAvailable" value="Test Link"/>
+    <br/>
+    <h:button outcome="surprise" value="Surprise"/>
 
 </h:body>
 </html>

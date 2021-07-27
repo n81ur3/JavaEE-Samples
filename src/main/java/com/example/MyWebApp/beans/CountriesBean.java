@@ -3,10 +3,16 @@ package com.example.MyWebApp.beans;
 import com.example.MyWebApp.data.Country;
 import com.example.MyWebApp.service.CountryService;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 @Named
@@ -20,12 +26,26 @@ public class CountriesBean implements Serializable {
     private final String[] usCountries = new String[]{"New York", "Michigan", "Washington", "Philadelphia"};
     private String selectedCountryCode = "AT";
     private String[] citySelection = austrianCountries;
+    private String newId;
+    private String newCode;
+    private String newName;
+    private Country selectedForDeletion;
+    private List<String> properties;
 
     @Inject
     private CountryService countryService;
 
+    @PostConstruct
+    private void init() {
+        properties = Arrays.asList("id", "code", "name");
+    }
+
     public List<Country> getCountries() {
         return countryService.getAll();
+    }
+
+    public List<Country> getRandomCountries() {
+        return countryService.getRandomCountries(50);
     }
 
     public String getSelectedCountry() {
@@ -75,5 +95,58 @@ public class CountriesBean implements Serializable {
 
     public void setCitySelection(String[] citySelection) {
         this.citySelection = citySelection;
+    }
+
+    public String getNewId() {
+        return newId;
+    }
+
+    public void setNewId(String newId) {
+        this.newId = newId;
+    }
+
+    public String getNewCode() {
+        return newCode;
+    }
+
+    public void setNewCode(String newCode) {
+        this.newCode = newCode;
+    }
+
+    public String getNewName() {
+        return newName;
+    }
+
+    public void setNewName(String newName) {
+        this.newName = newName;
+    }
+
+    public void save() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage("country_form:save", new FacesMessage("Countries persisted to DB"));
+        context.addMessage(null, new FacesMessage("Saved successfully"));
+    }
+
+    public void addCountry() {
+        countryService.addCountry(new Country(Integer.parseInt(newId), Integer.parseInt(newCode), newName));
+        newId = "";
+        newCode = "";
+        newName = "";
+    }
+
+    public void delete() {
+        countryService.delete(selectedForDeletion);
+    }
+
+    public Country getSelectedForDeletion() {
+        return selectedForDeletion;
+    }
+
+    public void setSelectedForDeletion(Country selectedForDeletion) {
+        this.selectedForDeletion = selectedForDeletion;
+    }
+
+    public List<String> getProperties() {
+        return properties;
     }
 }

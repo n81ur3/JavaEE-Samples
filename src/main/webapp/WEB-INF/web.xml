@@ -5,6 +5,7 @@
          version="4.0">
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
+<!-- other parameter: Production, UnitTest, SystemTest (https://docs.oracle.com/javaee/6/tutorial/doc/bnaxj.html#giqxl)-->
         <param-value>Development</param-value>
     </context-param>
     <context-param>
@@ -13,7 +14,11 @@
     </context-param>
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>nova-dark</param-value>
+        <param-value>midnight</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
     </context-param>
 
     <data-source>
@@ -36,4 +41,36 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/error404.html</location>
+    </error-page>
+
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>secure</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/auth_failed.html</form-error-page>
+        </form-login-config>
+    </login-config>
+
 </web-app>
